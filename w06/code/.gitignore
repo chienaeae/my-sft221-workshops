@@ -1,0 +1,10 @@
+.idea
+cmake-build-*
+
+.vscode
+
+vcpkg_installed
+
+build
+debug
+release

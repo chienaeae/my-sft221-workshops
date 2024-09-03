@@ -1,0 +1,8 @@
+{
+  "name" : "main",
+  "builtin-baseline": "9e1b320a71406d38580833e47bc35545b120dc34",
+  "dependencies" : [ {
+    "name" : "gtest",
+    "version>=" : "1.14.0#1"
+  } ]
+}

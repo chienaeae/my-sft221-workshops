@@ -1,0 +1,44 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-vcs-permalinks
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: clang-format
+        name: clang-format
+        description: format your C/C++ files
+        stages: [pre-commit]
+        language: system
+        entry: bash -c 'find src test include -name "*.cpp" -o -name "*.h" | xargs clang-format -i'
+        always_run: true
+      - id: clang-tidy
+        name: clang-tidy
+        description: Lint your C/C++ files
+        stages: [pre-commit]
+        language: system
+        entry: >
+          bash -c 'FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E "\.cpp$|\.h$");
+          if [ -n "$FILES" ]; then
+            python3 run-clang-tidy.py -quiet -j 4 -p debug $FILES;
+          fi'
+        always_run: true
+      - id: commitlint
+        name: commitlint
+        description: Lint your commit messages
+        stages: [commit-msg]
+        language: system
+        entry: commitlint --edit
+        always_run: true
