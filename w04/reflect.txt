@@ -1,0 +1,56 @@
+1.	
+
+Q: What was the most useful technique you used to find the bugs? Why was it 
+more useful than other techniques you tried?
+
+Answer: The most useful technique is to directly display the result for each 
+testing functions to find the bugs. Since this is a relatively small program 
+and every function is small, directly displaying results simplifies debugging 
+by immediately showing what each function output without complex of using 
+debugging tools. This approach is very effective for finding out incorrect 
+calculations in a straightforward manner. It is also helpful in making changes 
+to the code until the expected results is achieved.
+
+2.	
+
+Q: Look up answers to the following questions and report your findings:
+
+a.	What are the largest integer and double values you can store?
+
+Answer: The largest value for an integer value can store is 2,147,483,647, and 
+for a double value is 1.7*10^308.
+
+b.	Why is there a limit on the maximum value you can store in a variable?
+
+Answer: The limit on the maximum value is due to the memory allocated to every 
+variable. Each data type is assigned with a specific amount of memory in terms 
+of bits. It determines how much the range of value it can store and represent.
+
+c.	If you exceed the maximum value an integer can hold, what happens? Explain 
+why the format causes this to happen.
+
+Answer: If a code exceeds the maximum value of an integer, it leads to integer 
+overflow. Which means the value will wrap around to the negative range of the 
+integer representation. This is because fixed number of bits are set and adding 
+any positive integer causes the value to go back around.
+
+d.	What is the format for the storage of a floating point variable? How does 
+this differ from the way an integer is stored?
+
+Answer: Floating-point are stored using the IEEE 754. It allocates bits for sign, 
+exponent. This is different from how an integer store the value. Due to this 
+reason, floating-point allows for a vast range of value but it lose some precision.
+
+3.	What is the default amount of stack memory that is given to a program when 
+Visual Studio starts a C or C++ program? What is the default heap size? Did you 
+hit any of the limits? If so, which one(s)? If you hit a limit, would increasing 
+the amount of memory allocated to the program fix the problem? Justify your answer. 
+Why do they limit the stack and heap size for a program?
+
+Answer: The default stack size in Visual Studio is 1MB. And the default heap size 
+vary but is significantly larger. It can be several GBs. In the cod example, I didn’t 
+find the program hit the limits. However, it is better to solve the issue by checking 
+the memory usage and ensure the memory efficiency. A limit of stack and heap size is 
+to ensure individual programs not consume too much system resources. It could affect 
+the whole computer stability.
+
